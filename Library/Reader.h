@@ -15,17 +15,18 @@ public:
 
 class Reader_Node
 {
-	Reader r;
-	Reader* next;
+public:
+	Reader *r;
+	Reader_Node* next;
 	Reader_Node(Reader* r);
 };
 
 
 class Readers_list
 {
-	Reader *first;
+	Reader_Node *first;
 public:
 	void print();
-	void append();
+	void append(Reader* a);
 };
 

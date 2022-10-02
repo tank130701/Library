@@ -64,6 +64,12 @@ void List1::append(LibraryBook *a)
 
 void List1::print()
 {
+	Node1* print = this->first;
+	while (print)
+	{
+		print->a->print_fullinfo();
+		print = print->next;
+	}
 }
 
 List1::List1()

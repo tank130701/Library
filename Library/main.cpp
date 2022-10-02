@@ -20,9 +20,11 @@ int menu() {
 void create_new_book(List *list)
 {
 	int year, count;
-	std::string author, pub;
+	std::string author, pub, name;
+	std::cout << "Enter name of book: " << std::endl;
+	std::getline(std::cin, name);
+	std::getline(std::cin, name);
 	std::cout << "Enter author of book: " << std::endl;
-	std::getline(std::cin, author);
 	std::getline(std::cin, author);
 	std::cout << "Enter year of publication: " << std::endl;
 	std::cin >> year;
@@ -31,13 +33,20 @@ void create_new_book(List *list)
 	std::cout << "Enter count of pages" << std::endl;
 	std::cin >> count;
 	
-	Book* a = new Book(author, year, pub, count);
+	Book* a = new Book(name, author, year, pub, count);
 	//LibraryBook* b = new LibraryBook(author, year, pub, count, total_count, total_count);
 	(*list).append(a);
 }
 
 void add_book_to_catalog(List *list, List1 *list1)
 {
+	list->print_names();
+	std::cout << "Enter name of book which you want to add to catalog" << std::endl;
+	std::string name;
+	std::getline(std::cin, name);
+	List *temp;
+	//temp = list.first;
+	//while (temp->first)
 	int total_count;
 	std::cout << "Enter count of Books" << std::endl;
 	std::cin >> total_count;

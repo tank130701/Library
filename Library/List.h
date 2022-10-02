@@ -12,10 +12,12 @@ public:
 
 class List
 {
-	Node* first;
+	
 public:
+	Node* first;
 	void append(Book* a);
 	void print();
+	void print_names();
 	List();
 };
 

@@ -30,6 +30,16 @@ void List::print()
 	}
 }
 
+void List::print_names()
+{
+	Node* print = this->first;
+	while (print)
+	{
+		print->a->print_name();
+		print = print->next;
+	}
+}
+
 List::List()
 {
 	this->first = nullptr;

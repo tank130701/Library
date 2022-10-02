@@ -3,8 +3,14 @@
 
 
 
+void Book::print_name()
+{
+	std::cout << "Name: " << name << std::endl;
+}
+
 void Book::print_fullinfo()
 {
+	std::cout << "Name: " << name << std::endl;
 	std::cout << "Author: " << author << std::endl;
 	std::cout << "Year of publication: " << year << std::endl;
 	std::cout << "Publisher: " << pub << std::endl;
@@ -17,8 +23,9 @@ Book::Book()
 	pages_count = 0;
 }
 
-Book::Book(std::string author, int year, std::string pub, int pages_count)
+Book::Book(std::string name, std::string author, int year, std::string pub, int pages_count)
 {
+	this->name = name;
 	this->author = author;
 	this->year = year;
 	this->pub = pub;

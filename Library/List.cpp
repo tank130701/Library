@@ -45,6 +45,12 @@ List::List()
 	this->first = nullptr;
 }
 
+Node::Node()
+{
+	this->a = nullptr;
+	this->next = nullptr;
+}
+
 Node::Node(Book* a)
 {
 	this->a = a;

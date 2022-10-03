@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <ctime>
 class Reader
 {
 	std::string first_name;

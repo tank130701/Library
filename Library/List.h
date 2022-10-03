@@ -7,6 +7,7 @@ class Node
 public:
 	Book* a;
 	Node* next;
+	Node();
 	Node(Book* a);
 };
 

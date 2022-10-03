@@ -10,6 +10,8 @@ int menu() {
 		"3. Append book to catalog\n"
 		"4. Remove book from catalog\n"
 		"5. Print info about book by id\n"
+		"6. Print Books list\n"
+		"7. Print Library Books list\n"
 		"0. Exit " << std::endl;
 	int cmd;
 	std::cout << "~$ ";
@@ -34,7 +36,6 @@ void create_new_book(List *list)
 	std::cin >> count;
 	
 	Book* a = new Book(name, author, year, pub, count);
-	//LibraryBook* b = new LibraryBook(author, year, pub, count, total_count, total_count);
 	(*list).append(a);
 }
 
@@ -44,12 +45,19 @@ void add_book_to_catalog(List *list, List1 *list1)
 	std::cout << "Enter name of book which you want to add to catalog" << std::endl;
 	std::string name;
 	std::getline(std::cin, name);
-	List *temp;
+	Node *temp = new Node;
+	temp = (list->first);
+	while (temp && temp->a->name != name)
+		temp = temp->next;
+	Book *a = temp->a;
 	//temp = list.first;
 	//while (temp->first)
+	
 	int total_count;
 	std::cout << "Enter count of Books" << std::endl;
 	std::cin >> total_count;
+	LibraryBook* b = new LibraryBook(*a, total_count, total_count);
+	list1->append(b);
 }
 
 int LibraryBook::count = 0;
@@ -70,8 +78,17 @@ int main()
 		case 1:
 			create_new_book(&list);
 			break;
+		case 3:
+			add_book_to_catalog(&list, &list1);
+
 		case 5:
+			//list.print();
+			break;
+		case 6:
 			list.print();
+			break;
+		case 7:
+			list1.print();
 			break;
 		};
 		if (exit == true) break;

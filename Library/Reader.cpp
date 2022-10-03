@@ -24,6 +24,8 @@ void Reader::print_readerinfo()
 void Readers_list::print()
 {
 	Reader_Node* print = this->first;
+	if (print == nullptr)
+		std::cout << "Readers list is empty" << std::endl;
 	while (print)
 	{
 		print->r->print_readerinfo();

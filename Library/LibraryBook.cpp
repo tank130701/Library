@@ -45,6 +45,8 @@ LibraryBook::LibraryBook(const Book& a, int total_count, int avilable_book_count
 	year = a.year;
 	pub = a.pub;
 	pages_count = a.pages_count;
+	book_id = rand();
+	count++;
 	this->total_count = total_count;
 	this->avilable_book_count = avilable_book_count;
 }

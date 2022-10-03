@@ -41,15 +41,18 @@ void create_new_book(List *list)
 
 void add_book_to_catalog(List *list, List1 *list1)
 {
+
 	list->print_names();
 	std::cout << "Enter name of book which you want to add to catalog" << std::endl;
 	std::string name;
 	std::getline(std::cin, name);
-	Node *temp = new Node;
-	temp = (list->first);
-	while (temp && temp->a->name != name)
-		temp = temp->next;
-	Book *a = temp->a;
+	std::getline(std::cin, name);
+	
+	while (list->first->next && list->first->a->name != name)
+	{
+		list->first = list->first->next;
+	}
+	Book *a = list->first->a;
 	//temp = list.first;
 	//while (temp->first)
 	

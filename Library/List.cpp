@@ -47,7 +47,7 @@ List::List()
 
 Node::Node()
 {
-	this->a = nullptr;
+	this->a = new Book;
 	this->next = nullptr;
 }
 
@@ -90,4 +90,5 @@ void List1::print()
 
 List1::List1()
 {
+	this->first = nullptr;
 }

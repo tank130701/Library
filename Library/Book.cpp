@@ -19,8 +19,11 @@ void Book::print_fullinfo()
 }
 Book::Book()
 {
-	year = 0;
-	pages_count = 0;
+	this->name = "unnamed";
+	this->author = "unnamed";
+	this->year = 0;
+	this->pub = "unnamed";
+	this->pages_count = 0;
 }
 
 Book::Book(std::string name, std::string author, int year, std::string pub, int pages_count)

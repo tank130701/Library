@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Reader.h"
 #include <chrono>
+#include <string>
 
 Reader::Reader(std::string first_name, std::string last_name)
 {
@@ -56,6 +57,22 @@ void Readers_list::append(Reader *a)
 		temp = temp->next;
 	newnode->next = nullptr;
 	temp->next = newnode;
+}
+
+void Readers_list::remove_reader()
+{
+	//print_names();
+	std::string name;
+	std::cout << "Enter first name of reader which you want to delete: " << std::endl;
+	std::getline(std::cin, name);
+	std::getline(std::cin, name);
+	Reader_Node* temp = this->first;
+	while (temp->r->first_name != name)
+	{
+		temp = temp->next;
+	}
+	this->first = temp->next;
+	delete temp;
 }
 
 Readers_list::Readers_list()

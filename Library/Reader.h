@@ -3,11 +3,11 @@
 #include <ctime>
 class Reader
 {
+public:
 	std::string first_name;
 	std::string last_name;
 	std::time_t end_time;
 	Reader* next;
-public:
 	Reader(std::string first_name, std::string last_name);
 	Reader();
 	void print_readerinfo();
@@ -28,6 +28,7 @@ class Readers_list
 public:
 	void print();
 	void append(Reader* a);
+	void remove_reader();
 	Readers_list();
 };
 

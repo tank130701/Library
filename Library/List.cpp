@@ -1,6 +1,7 @@
 #include "List.h"
 #include "Book.h"
 #include "LibraryBook.h"
+#include <string>
 
 void List::append(Book* a)
 {
@@ -17,12 +18,31 @@ void List::append(Book* a)
 	temp->next = newnode;
 }
 
+void List::delete_node()
+{
+	print_names();
+	std::string name;
+	std::cout << "Enter the title of book which you want to delete: " << std::endl;
+	std::getline(std::cin, name);
+	std::getline(std::cin, name);
+	Node *temp = this->first;
+	while (temp->next && temp->a->name != name)
+	{
+		
+		temp = temp->next;
+	}
+	this->first = temp->next;
+	delete temp;
+}
+
 void List::print()
 {
 	//if (this->next == nullptr)
 	//	a.print_fullinfo();
 	//else
 	Node* print = this->first;
+	if (print == nullptr)
+		std::cout << "List is Empty" << std::endl;
 	while (print)
 	{
 		print->a->print_fullinfo();
@@ -33,6 +53,8 @@ void List::print()
 void List::print_names()
 {
 	Node* print = this->first;
+	if (print == nullptr)
+		std::cout << "List is Empty" << std::endl;
 	while (print)
 	{
 		print->a->print_name();
@@ -78,12 +100,43 @@ void List1::append(LibraryBook *a)
 	temp->next = newnode;
 }
 
+void List1::delete_node()
+{
+	print_names();
+	std::string name;
+	std::cout << "Enter the title of book which you want to delete: " << std::endl;
+	std::getline(std::cin, name);
+	std::getline(std::cin, name);
+	Node1* temp = this->first;
+	while (temp->a->name != name)
+	{
+		temp = temp->next;
+	}
+	this->first = temp->next;
+	delete temp;
+
+}
+
 void List1::print()
 {
 	Node1* print = this->first;
+	if (print == nullptr)
+		std::cout << "List is Empty" << std::endl;
 	while (print)
 	{
 		print->a->print_fullinfo();
+		print = print->next;
+	}
+}
+
+void List1::print_names()
+{
+	Node1* print = this->first;
+	if (print == nullptr)
+		std::cout << "List is Empty" << std::endl;
+	while (print)
+	{
+		print->a->print_name();
 		print = print->next;
 	}
 }

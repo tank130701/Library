@@ -28,5 +28,6 @@ class Readers_list
 public:
 	void print();
 	void append(Reader* a);
+	Readers_list();
 };
 

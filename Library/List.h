@@ -12,11 +12,11 @@ public:
 };
 
 class List
-{
-	
+{	
 public:
 	Node* first;
 	void append(Book* a);
+	void delete_node();
 	void print();
 	void print_names();
 	List();
@@ -32,9 +32,11 @@ public:
 
 class List1
 {
-	Node1* first;
 public:
+	Node1* first;
 	void append(LibraryBook* a);
+	void delete_node();
 	void print();
+	void print_names();
 	List1();
 };

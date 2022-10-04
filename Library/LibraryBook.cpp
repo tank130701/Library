@@ -12,6 +12,7 @@ void LibraryBook::add_reader()
 	Reader *newreader;
 	newreader = new Reader(firstname, lastname);
 	this->list->append(newreader);
+	avilable_book_count--;
 }
 
 
@@ -26,13 +27,15 @@ void LibraryBook::print_fullinfo()
 	std::cout << "Book id : " << book_id << std::endl;
 	std::cout << "Total books count : " << total_count << std::endl;
 	std::cout << "Avilable books count : " << avilable_book_count << std::endl;
+	std::cout << "===============================================" << std::endl;
+	std::cout << "Readers list: " << std::endl;
 	this->list->print();
 	std::cout << "===============================================" << std::endl;
 }
 
 LibraryBook::LibraryBook()
 {
-	list = nullptr;
+	list = new Readers_list;
 	book_id = 0;
 	total_count = 0;
 	avilable_book_count = 0;
@@ -47,6 +50,7 @@ LibraryBook::LibraryBook(const Book& a, int total_count, int avilable_book_count
 	pages_count = a.pages_count;
 	book_id = rand();
 	count++;
+	list = new Readers_list;
 	this->total_count = total_count;
 	this->avilable_book_count = avilable_book_count;
 }

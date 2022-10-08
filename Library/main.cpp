@@ -21,7 +21,7 @@ int menu() {
 	return cmd;
 };
 
-void create_new_book(List *list)
+void create_new_book(List<Book> *list)
 {
 	int year, count;
 	std::string author, pub, name;
@@ -41,7 +41,7 @@ void create_new_book(List *list)
 	(*list).append(a);
 }
 
-void add_book_to_catalog(List *list, List1 *list1)
+void add_book_to_catalog(List<Book> *list, List<LibraryBook> *list1)
 {
 
 	list->print_names();
@@ -49,12 +49,12 @@ void add_book_to_catalog(List *list, List1 *list1)
 	std::string name;
 	std::getline(std::cin, name);
 	std::getline(std::cin, name);
-	Node* temp = list->first;
-	while (temp->next && temp->a->name != name)
+	Node<Book>* temp = list->first;
+	while (temp->next && temp->data->name != name)
 	{
 		temp = temp->next;
 	}
-	Book *a = temp->a;
+	Book *a = temp->data;
 	//temp = list.first;
 	//while (temp->first)
 	int total_count;
@@ -64,20 +64,20 @@ void add_book_to_catalog(List *list, List1 *list1)
 	list1->append(b);
 }
 
-void add_reader_to_library_book(List1 *list1)
+void add_reader_to_library_book(List<LibraryBook> *list1)
 {
 	list1->print_names();
 	std::cout << "Enter name of the book which you want to add readers" << std::endl;
 	std::string name;
 	std::getline(std::cin, name);
 	std::getline(std::cin, name);
-	Node1 *temp = list1->first;
+	Node<LibraryBook> *temp = list1->first;
 
-	while (temp->next && temp->a->name != name)
+	while (temp->next && temp->data->name != name)
 	{
 		temp = temp->next;
 	}
-	temp->a->add_reader();
+	temp->data->add_reader();
 }
 
 int LibraryBook::count = 0;
@@ -85,8 +85,8 @@ int LibraryBook::count = 0;
 
 int main()
 {
-	List list;
-	List1 list1;
+	List<Book> list;
+	List<LibraryBook> list1;
 	while (true)
 	{
 		int cmd = menu();

@@ -1,5 +1,6 @@
 #pragma once
 #include "Book.h"
+#include "List.h"
 #include "Reader.h"
 
 class LibraryBook :
@@ -9,7 +10,7 @@ class LibraryBook :
 	int avilable_book_count;
 	int total_count;
 	static int count;
-	Readers_list *list;
+	List<Reader> *list;
 public:
 	void add_reader();
 	void print_fullinfo();

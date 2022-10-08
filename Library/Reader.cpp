@@ -19,69 +19,10 @@ Reader::Reader()
 	this->next = nullptr;
 }
 
-void Reader::print_readerinfo()
+void Reader::print_fullinfo()
 {
-	std::cout << "Reader first name: " << first_name <<std::endl;
+	std::cout << "Reader first name: " << first_name << std::endl;
 	std::cout << "Reader last name: " << last_name << std::endl;
 	std::cout << "Date of issue: " << std::ctime(&end_time) << std::endl;
 }
 
-void Readers_list::print()
-{
-	if (this->first == nullptr)
-	{
-		std::cout << "Readers list is empty" << std::endl;
-		return;
-	}
-	else
-	{ 
-	Reader_Node* print = this->first;
-	while (print)
-		{
-			print->r->print_readerinfo();
-			print = print->next;
-		}
-	}
-}
-
-void Readers_list::append(Reader *a)
-{
-	Reader_Node* newnode = new Reader_Node(a);
-	if (this->first == nullptr) {
-		this->first = newnode;
-		return;
-	}
-
-	Reader_Node* temp = this->first;
-	while (temp->next != nullptr)
-		temp = temp->next;
-	newnode->next = nullptr;
-	temp->next = newnode;
-}
-
-void Readers_list::remove_reader()
-{
-	//print_names();
-	std::string name;
-	std::cout << "Enter first name of reader which you want to delete: " << std::endl;
-	std::getline(std::cin, name);
-	std::getline(std::cin, name);
-	Reader_Node* temp = this->first;
-	while (temp->r->first_name != name)
-	{
-		temp = temp->next;
-	}
-	this->first = temp->next;
-	delete temp;
-}
-
-Readers_list::Readers_list()
-{
-	this->first = nullptr;
-}
-
-Reader_Node::Reader_Node(Reader *r)
-{
-	this->r = r;
-	this->next = nullptr;
-}

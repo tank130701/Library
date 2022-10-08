@@ -35,7 +35,7 @@ void LibraryBook::print_fullinfo()
 
 LibraryBook::LibraryBook()
 {
-	list = new Readers_list;
+	list = new List<Reader>;
 	book_id = 0;
 	total_count = 0;
 	avilable_book_count = 0;
@@ -50,7 +50,7 @@ LibraryBook::LibraryBook(const Book& a, int total_count, int avilable_book_count
 	pages_count = a.pages_count;
 	book_id = rand();
 	count++;
-	list = new Readers_list;
+	list = new List<Reader>;
 	this->total_count = total_count;
 	this->avilable_book_count = avilable_book_count;
 }

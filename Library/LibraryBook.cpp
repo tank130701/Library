@@ -5,14 +5,20 @@
 void LibraryBook::add_reader()
 {
 	std::string firstname, lastname;
-	std::cout << "Enter Reader's first name: " << std::endl;
+	std::cout << "Enter Reader's first name: ";
 	std::cin >> firstname;
-	std::cout << "Enter Reader's last name: " << std::endl;
+	std::cout << "Enter Reader's last name: ";
 	std::cin >> lastname;
 	Reader *newreader;
 	newreader = new Reader(firstname, lastname);
 	this->list->append(newreader);
 	avilable_book_count--;
+}
+
+void LibraryBook::remove_reader()
+{
+	this->list->delete_reader();
+	avilable_book_count++;
 }
 
 

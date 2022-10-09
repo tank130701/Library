@@ -6,13 +6,14 @@
 class LibraryBook :
     public Book
 {
-	int book_id;
+public:
 	int avilable_book_count;
 	int total_count;
 	static int count;
 	List<Reader> *list;
-public:
+	int book_id;
 	void add_reader();
+	void remove_reader();
 	void print_fullinfo();
 	LibraryBook();
 	LibraryBook(const Book &a, int total_count, int avilable_book_count);
